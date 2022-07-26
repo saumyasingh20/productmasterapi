@@ -31,6 +31,7 @@ export class ProductmasterComponent implements OnInit {
     this.productmasterservice.addProduct(this.prod).subscribe(
       prod =>this.products.unshift(prod)
    )
+    this.displayProducts();
    this.prod={
     id:0,
     name:'',
