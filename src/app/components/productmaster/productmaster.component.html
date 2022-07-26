@@ -1,0 +1,118 @@
+<div class="jumbotron">
+    <h1 class = "display-1 text-center" >Product Master</h1>
+    <h2 class="display-4 text-center">CRUD</h2>
+</div>
+
+<div class="container d-flex align-items-center flex-column justify-content-center h-100">
+
+<form class="form-horizontal">
+
+
+    <div class="form-row">
+        <div class="col">
+             <label class="col mt-3" for="name">Name</label>
+        </div>
+        <div class="col">
+            <input type="text" name="name" id="name" class="form-control mt-3" placeholder="For e.g. iPhone13" [(ngModel)]="prod.name"> 
+        </div>
+
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+          <label class="col mt-3" for="desc">Description</label>
+        </div>
+        <div class="col" >
+             <input type="text" name="desc" id="desc" class="form-control mt-3" placeholder="For e.g. Smartphone" [(ngModel)]="prod.desc"> 
+        </div>
+    </div>
+
+    <div class=" form-row">
+        <div class="col">
+            <label class="col mt-3" for="manu">Manufacturer</label>
+        </div>
+        <div class="col">
+             <input type="text" name="manu" id="manu" class="form-control mt-3" placeholder="For e.g. Apple" [(ngModel)]="prod.manu"> 
+        </div>
+    </div>
+
+    <div class=" form-row">
+        <div class="col">
+            <label class="col mt-3" for="price">Price</label>
+        </div>
+
+        <div class="col">
+             <input type="number" name="price" id="price" class="form-control mt-3" placeholder="Enter product price" [(ngModel)]="prod.price">
+        </div> 
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col ml-5 mt-5 mr-5">
+
+            <button (click)="addProduct()" class="btn btn-dark btn-outline btn-sm btn-block "> Add Product</button> 
+            <button (click)="displayProducts()" class="btn btn-dark btn-outline btn-sm btn-block "> Display</button> 
+            <!-- <button *ngIf="this.isUpdateVisible" class="btn btn-dark btn-outline btn-sm btn-block" (click)="updateProduct(prod.code)"> Update Product</button> --> -->
+
+         </div>
+    </div>
+
+</form>
+
+</div> 
+
+<div *ngIf="this.isTableVisible"class="jumbotron mt-5">
+
+    <h1 class="display-3 text-center">List Of My Products</h1>
+
+</div>
+<div class="container d-flex align-items-center flex-column justify-content-center">
+<table *ngIf="this.isTableVisible" class="table">
+    <tr>
+        <th>
+            Product Code
+        </th>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Product Description
+        </th>
+        <th>
+            Manufacturer
+        </th>
+        <th>
+            Price
+        </th>
+        <!-- <th>
+            Edit
+        </th>
+        <th>
+            Delete
+        </th> -->
+    </tr>
+    <tr *ngFor="let prod of products">
+        <td>
+            {{prod.id}}
+        </td>
+        <td>
+            {{prod.name}}
+        </td>
+        <td>
+            {{prod.desc}}
+        </td>
+        <td>
+            {{prod.manu}}
+        </td>
+        <td>
+            {{prod.price}}
+        </td>
+        <!-- <td>
+            <button (click)="editProduct(prod.code)"> Edit</button>
+        </td>
+        <td>
+            <button (click)="deleteProduct(prod.code)"> Delete</button>
+        </td> -->
+    </tr>
+</table>
+</div>
+
